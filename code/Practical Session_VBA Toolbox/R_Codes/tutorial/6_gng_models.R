@@ -1,0 +1,24 @@
+# Locate file path to go/ no-go data
+gng_dat <- file.choose()
+
+# Which model generated the go/no-go data? To find out, we will take a model
+# comparison approach
+fit_gng_m1 <- gng_m1(gng_dat, niter = 2000, nwarmup = 1000, nchain = 2, ncore = 2)
+fit_gng_m2 <- gng_m2(gng_dat, niter = 2000, nwarmup = 1000, nchain = 2, ncore = 2)
+fit_gng_m3 <- gng_m3(gng_dat, niter = 2000, nwarmup = 1000, nchain = 2, ncore = 2)
+fit_gng_m4 <- gng_m4(gng_dat, niter = 2000, nwarmup = 1000, nchain = 2, ncore = 2)
+
+# Check convergence!
+plot(fit_gng_m1, "trace"); rhat(fit_gng_m1, 1.1)
+plot(fit_gng_m2, "trace"); rhat(fit_gng_m2, 1.1)
+plot(fit_gng_m3, "trace"); rhat(fit_gng_m3, 1.1)
+plot(fit_gng_m4, "trace"); rhat(fit_gng_m4, 1.1)
+
+# Compare LOOIC values
+printFit(fit_gng_m1, fit_gng_m2, fit_gng_m3, fit_gng_m4)
+
+# Which model generated the data? (i.e. which has the lowest LOOIC?)
+# Model 4!
+
+# The data were generated from gng_m4! See the simulation code used here:
+# "/cpc2018/R_Codes/simulation/simulate_gng_m4.R"
