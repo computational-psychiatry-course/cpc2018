@@ -1,3 +1,15 @@
-# CPC2018
+# CPC Zurich 2018
 
-Course Material for the Computational Psychiatry Course 2018 in Zurich
+This repository contains the slides used in the CPC Zurich 2018.
+
+## Main course 🎙
+
+The slides of main course lectures can be found under `main-course`.
+
+## Tutorials 💻
+
+Check out the tutorial material under `tutorials`.
+
+Enjoy,
+
+You CPC Zurich Team
